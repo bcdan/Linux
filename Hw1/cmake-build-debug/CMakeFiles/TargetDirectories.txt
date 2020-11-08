@@ -1,0 +1,3 @@
+/home/dan/CLionProjects/Linux/Hw1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/dan/CLionProjects/Linux/Hw1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/dan/CLionProjects/Linux/Hw1/cmake-build-debug/CMakeFiles/Hw1.dir

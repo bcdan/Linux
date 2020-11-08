@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/dan/CLionProjects/Linux/Hw1/main.c
+sys/stat.h
+-
+sys/types.h
+-
+pwd.h
+-
+grp.h
+-
+dirent.h
+-
+time.h
+-
+unistd.h
+-
+string.h
+-
+stdio.h
+-
+
