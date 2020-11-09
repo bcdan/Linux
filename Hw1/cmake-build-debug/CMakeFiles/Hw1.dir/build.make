@@ -77,27 +77,27 @@ include CMakeFiles/Hw1.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Hw1.dir/flags.make
 
-CMakeFiles/Hw1.dir/main.c.o: CMakeFiles/Hw1.dir/flags.make
-CMakeFiles/Hw1.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dan/CLionProjects/Linux/Hw1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Hw1.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Hw1.dir/main.c.o   -c /home/dan/CLionProjects/Linux/Hw1/main.c
+CMakeFiles/Hw1.dir/my_ls.c.o: CMakeFiles/Hw1.dir/flags.make
+CMakeFiles/Hw1.dir/my_ls.c.o: ../my_ls.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dan/CLionProjects/Linux/Hw1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Hw1.dir/my_ls.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Hw1.dir/my_ls.c.o   -c /home/dan/CLionProjects/Linux/Hw1/my_ls.c
 
-CMakeFiles/Hw1.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Hw1.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/dan/CLionProjects/Linux/Hw1/main.c > CMakeFiles/Hw1.dir/main.c.i
+CMakeFiles/Hw1.dir/my_ls.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Hw1.dir/my_ls.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/dan/CLionProjects/Linux/Hw1/my_ls.c > CMakeFiles/Hw1.dir/my_ls.c.i
 
-CMakeFiles/Hw1.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Hw1.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dan/CLionProjects/Linux/Hw1/main.c -o CMakeFiles/Hw1.dir/main.c.s
+CMakeFiles/Hw1.dir/my_ls.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Hw1.dir/my_ls.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dan/CLionProjects/Linux/Hw1/my_ls.c -o CMakeFiles/Hw1.dir/my_ls.c.s
 
 # Object files for target Hw1
 Hw1_OBJECTS = \
-"CMakeFiles/Hw1.dir/main.c.o"
+"CMakeFiles/Hw1.dir/my_ls.c.o"
 
 # External object files for target Hw1
 Hw1_EXTERNAL_OBJECTS =
 
-Hw1: CMakeFiles/Hw1.dir/main.c.o
+Hw1: CMakeFiles/Hw1.dir/my_ls.c.o
 Hw1: CMakeFiles/Hw1.dir/build.make
 Hw1: CMakeFiles/Hw1.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dan/CLionProjects/Linux/Hw1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable Hw1"

@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Hw1.dir/main.c.o"
+  "CMakeFiles/Hw1.dir/my_ls.c.o"
   "Hw1"
   "Hw1.pdb"
 )

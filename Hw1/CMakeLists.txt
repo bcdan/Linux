@@ -3,4 +3,4 @@ project(Hw1 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Hw1 main.c)
+add_executable(Hw1 my_ls.c)

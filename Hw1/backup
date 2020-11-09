@@ -1,0 +1,35 @@
+//    else if(S_ISFIFO(info->sb.st_mode))
+//        printf( BLU "%s\n"RESET, name );
+    else if(info->desc.permissions[9]=='x' && info->desc.permissions[0]!='d')
+        printf(GRN"%s\n"RESET, name);
+    else if(info->desc.permissions[0]=='d')
+        printf(BLU"%s\n"RESET, name); //if directory -> blue
+//    else if((S_IXGRP & info->sb.st_mode) || (S_IXUSR & info->sb.st_mode) || (S_IXOTH & info->sb.st_mode))
+//        printf(GRN"%s\n"RESET, name); //if executable -> paint green
+    else
+        printf("%s\n", name);
+
+
+
+
+
+
+
+
+
+
+
+        //    info.grp = getgrgid(info.sb.st_gid);
+        //    info.pwd = getpwuid(info.sb.st_uid);
+        //    info.desc.userID=info.pwd->pw_name;
+        //    info.desc.groupId=info.grp->gr_name;
+        //    info.desc.numOfLinks=info.sb.st_nlink;
+        //    info.desc.size=info.sb.st_size;
+        //    info.t = localtime(&info.sb.st_ctime);
+        //    info.desc.day=info.t->tm_mday;
+        //    info.desc.month=info.t->tm_mon;
+        //    info.desc.min=info.t->tm_min;
+        //    info.desc.hour=info.t->tm_hour;
+        //    info.desc.year=info.t->tm_year+1900;
+        //    permissionsToString(&info);
+        //    return info;

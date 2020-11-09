@@ -76,7 +76,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/dan/CLionProjects/Linux/Hw1/main.c">
+		<Unit filename="/home/dan/CLionProjects/Linux/Hw1/my_ls.c">
 			<Option target="Hw1"/>
 		</Unit>
 		<Unit filename="/home/dan/CLionProjects/Linux/Hw1/CMakeLists.txt">
