@@ -1,0 +1,1 @@
+/usr/bin/cc --coverage -g   CMakeFiles/hw2.dir/dlshell.c.o  -o hw2 
