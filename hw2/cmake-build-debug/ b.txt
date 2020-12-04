@@ -1,0 +1,13 @@
+
+
+
+
+
+
+
+s -la
+
+
+use ">" to output something.
+If you're reading this , then it worked.
+\o
