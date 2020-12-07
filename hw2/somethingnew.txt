@@ -1,8 +1,0 @@
-m trying to use ">" to output something.
-If you're reading this , then it worked.
-Im also using grep so im gonna write the same
-shit all over again
-hello
-this is a test
-hello hello
-

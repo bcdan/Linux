@@ -6,17 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/dan/CLionProjects/Linux/hw2/dlshell.c
-sys/wait.h
--
-unistd.h
+/home/dan/CLionProjects/Linux/hw2/redirection.c
+stdio.h
 -
 stdlib.h
 -
-stdio.h
--
 string.h
 -
+sys/types.h
+-
+unistd.h
+-
+sys/stat.h
+-
 fcntl.h
+-
+sys/wait.h
 -
 
