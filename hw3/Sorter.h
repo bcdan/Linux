@@ -12,24 +12,20 @@
 #include <stdlib.h>
 #include "random.h"
 #include <unistd.h>
-#define MSGBUFF 50
+#include <sys/wait.h>
 
+#define NUMOFPROC 3
 enum queueKeys {NEW=TYPE_NEW,UPGRADE=TYPE_UPGRADE,REPAIR=TYPE_REPAIR,QUIT=TYPE_QUIT,SORTER};
 
-//struct message {
-//    long msgType;
-//    char msgText[MSGBUFF];
-//    customer c;
-//} message;
-
+pid_t pids[NUMOFPROC];
 customer c;
-//char *customerTypes[] = {
-//        "NEW",
-//        "UPGRADE",
-//        "REPAIR",
-//        "QUIT"
-//};
 
+char *execFiles[][3] = {
+        {"./clerk", "0",   NULL},
+        {"./clerk", "1",   NULL},
+        {"./clerk", "2",   NULL},
+
+};
 
 
 #endif //HW3_SORTER_H

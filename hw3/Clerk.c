@@ -14,6 +14,32 @@ key_t getKeyByType(int type){
 
     }
 }
+
+void promptStart (int type){
+    char *blank = NULL;
+    if(type == NEW){
+        blank = "new";
+    }else if (type==UPGRADE){
+        blank = "upgrade";
+    }
+    else if (type == REPAIR){
+        blank = "repair";
+    }
+    printf("Clerk for %s is starting\n",blank);
+}
+
+void promptEnd (int type){
+    char *blank = NULL;
+    if(type == NEW){
+        blank = "new";
+    }else if (type==UPGRADE){
+        blank = "upgrade";
+    }
+    else if (type == REPAIR){
+        blank = "repair";
+    }
+    printf("Clerk for %s is quitting\n",blank);
+}
 void start(char *type) {
     int running = 1;
     key_t key;
@@ -31,13 +57,15 @@ void start(char *type) {
             exit(EXIT_FAILURE);
         }
         usleep(c.c_data.process_time);//todo:QUIT will cause trouble
-        msgsnd(msgForwardID, &c, sizeof(c), 0);
         if (c.c_data.type == QUIT) {
             printf("Customer quit\n");
             running = 0;
-            msgctl(msgRecieveID, IPC_RMID, NULL);
+            c.c_id=404; // special indicator
         }
+        msgsnd(msgForwardID, &c, sizeof(c), 0);
     }
+    msgctl(msgRecieveID, IPC_RMID, NULL);
+
 
 }
 
@@ -46,7 +74,9 @@ int main(int argc, char *argv[]) {
         printf("not enough arguments\n");
         return 0;
     }
+    promptStart(atoi(argv[1]));
     start(argv[1]);
+    promptEnd(atoi(argv[1]));
     return 0;
 }
 
