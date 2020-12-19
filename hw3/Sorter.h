@@ -13,12 +13,14 @@
 #include "random.h"
 #include <unistd.h>
 #include <sys/wait.h>
+#include <sys/shm.h>
 
 #define NUMOFPROC 3
 enum queueKeys {NEW=TYPE_NEW,UPGRADE=TYPE_UPGRADE,REPAIR=TYPE_REPAIR,QUIT=TYPE_QUIT,SORTER};
 
 pid_t pids[NUMOFPROC];
 customer c;
+
 
 char *execFiles[][3] = {
         {"./clerk", "0",   NULL},

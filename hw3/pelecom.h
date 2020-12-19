@@ -5,6 +5,8 @@
 /*
  * Customer type: what does the customer wish to accomplish?
  */
+#include "stopwatch.h"
+
 #define TYPE_NEW      0		// new customer
 #define TYPE_UPGRADE  1		// customer wishes to upgrade hardware or program
 #define TYPE_REPAIR   2		// customer wisher to repair hardware

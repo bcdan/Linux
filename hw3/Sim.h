@@ -6,7 +6,8 @@
 #include "pelecom.h"
 #include "string.h"
 #include <sys/wait.h>
-
+#include "random.h"
+#include <sys/shm.h>
 #define TRUE 1
 #define FALSE 0
 
@@ -23,11 +24,14 @@ struct qMessage {
 char * sorterCMD [] = {"./sorter",NULL};
 
 // init sw
-stopwatch sw[1];
+//stopwatch sw[1];
+struct stopwatch * sw;
+
 customer *customersList;
 int numOfCustomers = 0;
 int finishTime = 0;
 int status;
+int shmid;
 pid_t pid;
 customer c;
 

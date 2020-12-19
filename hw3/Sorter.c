@@ -40,7 +40,7 @@ void startProcs(){
 
 
 void start() {
-
+    stopwatch* sw;
     int running = 1;
     key_t customerKey;
     int msgRecieveId = 0;
@@ -48,10 +48,11 @@ void start() {
     double avg = 0;
     double std = 0;
     double min = 0;
+    int addr;
     double handleTime = 0; ///////////////////
-    double countHandle = 0;///////////////
     setConsts(&avg, &std, &min);
     key_t sorter = ftok("Sorter.c", 's');
+
     msgRecieveId = msgget(sorter, 0666 | IPC_CREAT);
     if (msgRecieveId == -1) {
         fprintf(stderr, "msgget failed , [%d]\n", errno);
@@ -60,31 +61,55 @@ void start() {
     key_t upgrade = ftok("Clerk.c", 'u');
     key_t repair = ftok("Clerk.c", 'r');
     key_t new = ftok("Clerk.c", 'n');
+    key_t stopwatchKey = ftok("Sim.c",'s');
+
     key_t keys[] = {new, upgrade, repair};
     int msgIDUpgrade= msgget(upgrade, 0666|IPC_CREAT );
     int msgIDRepair=msgget(repair, 0666|IPC_CREAT );
     int msgIDNew=msgget(new, 0666|IPC_CREAT );
     printf("\n");
     c.c_id = 1;
+
     while (running) {
+
         if (msgrcv(msgRecieveId, &c, sizeof(c), 0, 0) == -1) {
             fprintf(stderr, "msgrcv failed, %s\n", strerror(errno));
             exit(EXIT_FAILURE);
         }
+
         handleTime = initRandomByType(avg, std, min);
-        countHandle += handleTime;
         usleep(handleTime); //todo: test this later
+        int shmid = shmget(stopwatchKey,1024,0666|IPC_CREAT);
+        if(shmid!=-1) {
+            sw = (struct stopwatch *) shmat(shmid, NULL, 0);
+        }
         switch (c.c_data.type) {
             case NEW:
+               c.c_data.start_time=swlap(sw);
+                addr = shmdt(sw);
+                if(addr==-1){
+                    printf("couldnt shdt\n");
+                }
                 msgsnd(msgIDNew, &c, sizeof(c), 0);
                 break;
             case UPGRADE:
+               c.c_data.start_time=swlap(sw);
+                addr = shmdt(sw);
+                if(addr==-1){
+                    printf("couldnt shdt\n");
+                }
                 msgsnd(msgIDUpgrade, &c, sizeof(c), 0);
                 break;
             case REPAIR:
+               c.c_data.start_time=swlap(sw);
+                addr = shmdt(sw);
+                if(addr==-1){
+                    printf("couldnt shdt\n");
+                }
                 msgsnd(msgIDRepair, &c, sizeof(c), 0);
                 break;
             case QUIT: {
+                //todo:might need to calc time
                 for (int i = 0; i < 3; ++i) {
                     c.c_id = 1;
                     customerKey = keys[i];
@@ -98,7 +123,6 @@ void start() {
 
 
     }
-
 
     msgctl(msgRecieveId, IPC_RMID, NULL);
 

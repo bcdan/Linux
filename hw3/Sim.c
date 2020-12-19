@@ -4,11 +4,24 @@
 #include <sys/ipc.h>
 #include <sys/msg.h>
 #include <stdlib.h>
-#include "random.h"
-#include "stopwatch.h"
+
 #include "Sim.h"
 #include <unistd.h>
 #include <errno.h>
+
+
+char* toStringByType(int type){
+    switch(type){
+        case NEW:
+            return "new";
+        case UPGRADE:
+            return "upgrade";
+        case REPAIR:
+            return "repair";
+        default:
+            return "null";
+    }
+}
 
 
 double initRandomByType(double avg, double std, double min) {
@@ -65,7 +78,7 @@ void getRandomConstsByType(int customer_t, double *avg, double *std, double *min
         setRepair(avg, std, min);
 }
 
-void gatherInfo(int type, long time) {
+void gatherInfo(int type) {
     double avg;
     double std;
     double min;
@@ -73,10 +86,22 @@ void gatherInfo(int type, long time) {
     c.c_data.process_time = (int) initRandomByType(avg, std, min);
     c.c_id = numOfCustomers+10000;//todo:change later
     c.c_data.type = type;
-    c.c_data.enter_time = swlap(&sw[0]);
-    c.c_data.start_time = c.c_data.enter_time + (time / 1000);
+    c.c_data.enter_time = swlap(sw);
 }
 
+
+void startTimer(key_t stopwatchKey){
+    shmid=shmget(stopwatchKey,1024,0666|IPC_CREAT);
+    if(shmid!=-1){
+        sw = (struct stopwatch*)shmat(shmid,NULL,0);
+        swstart(sw);
+
+    }
+    int addr = shmdt(sw);
+    if(addr==-1){
+        printf("couldnt shdt\n");
+    }
+}
 void initCustomers() {
     int msgid;
     int msgquit;
@@ -86,26 +111,31 @@ void initCustomers() {
     double std;
     double min;
     double handleTimeArrive = 0;
-    double handleTimeCustomer = 0;
-    long temp_time;
-
+    int addr;
     setArriveConsts(&avg, &std, &min);
     handleTimeArrive = initRandomByType(avg, std, min);
     quit.msg = 2;
     key_t sorter = ftok("Sorter.c", 's');
     key_t quitKey = ftok("Sim.c", 'q');
+    key_t stopwatchKey = ftok("Sim.c",'s');
     msgid = msgget(sorter, 0666 | IPC_CREAT);
     msgquit = msgget(quitKey, 0666 | IPC_CREAT);
-
+    startTimer(stopwatchKey);
     while (flag) {
 
         generateCustomer(&type);
-        gatherInfo(type, handleTimeCustomer);
-        temp_time = swlap(&sw[0]);
-        c.c_data.type = type;
+        usleep(handleTimeArrive);
+        shmid=shmget(stopwatchKey,1024,0666);
+        if(shmid!=-1){
+            sw = (struct stopwatch*)shmat(shmid,NULL,0);
+        }
+        gatherInfo(type);
+        addr = shmdt(sw);
+        if(addr==-1){
+            printf("couldnt shdt\n");
+        }
         msgsnd(msgid, &c, sizeof(c), 0);
         numOfCustomers++;
-        usleep(handleTimeArrive);
 
         if (msgrcv(msgquit, &quit, sizeof(quit), 1, IPC_NOWAIT) == -1) {
             if (errno == ENOMSG) {
@@ -114,7 +144,12 @@ void initCustomers() {
                 fprintf(stderr, "msgrcv failed SIM, %s\n", strerror(errno));
             }
         } else {
-            printf("\nQuitting... %ld\n", swlap(&sw[0]));
+            shmid = shmget(stopwatchKey,1024,0666|IPC_CREAT);
+            if(shmid!=-1){
+                sw = (struct stopwatch*)shmat(shmid,NULL,0);
+                printf("\nQuitting... %ld\n", swlap(&sw[0]));
+
+            }
             c.c_data.type = QUIT;
             c.c_id = 1;
             msgsnd(msgid, &c, sizeof(c), 0);
@@ -165,9 +200,19 @@ void checkQueues() {
     msgctl(msgid, IPC_RMID, NULL);
     for (int i = 0; i <numOfCustomers ; ++i) {
 
-        printf("%ld \n",customersList[i].c_id);
+        printf("%ld: %s arrived: %ld started: %ld processed: %ld exited: %ld elapse %ld\n",
+               customersList[i].c_id,
+               toStringByType(customersList[i].c_data.type),
+               customersList[i].c_data.enter_time,
+               customersList[i].c_data.start_time,
+               customersList[i].c_data.exit_time - customersList[i].c_data.start_time,
+               customersList[i].c_data.exit_time,
+               customersList[i].c_data.elapse_time
+        );
 
     }
+    shmctl(shmid,IPC_RMID,NULL);
+
 
 }
 
@@ -175,7 +220,6 @@ void start() {
      if ((pid = fork()) == 0) {
         execvp(*sorterCMD,sorterCMD);
     }else if (pid > 0){
-        swstart(&sw[0]);
         initCustomers();
         wait(&status);
 
@@ -184,11 +228,6 @@ void start() {
 
     free(customersList);
     printf("\n\n\n\n\n\nsize all %d\n\n\n\n\n", numOfCustomers);
-    // usleep(100000);
-    //finishTime = swlap(&sw[0]);
-    //   printf("close the shop %ld", swlap(&sw[0]));
-    // show_stats();
-    // free_all_messages();
     printf("Ending-----\n");
 
 }
