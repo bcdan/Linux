@@ -1,0 +1,10 @@
+agent  - > gets w/e keys then sends to back to 105
+recp - > gets from 104 then sends to w/e
+when finished recp - > sends kill to all keys
+
+sim - > creates clients on 104 sends to 104
+sim - > gets all from 105
+
+agents = 100 101 102
+recep 104
+sim 105
