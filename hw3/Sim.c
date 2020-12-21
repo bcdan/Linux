@@ -3,25 +3,10 @@
 #include <stdio.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>
-#include <stdlib.h>
-
 #include "Sim.h"
 #include <unistd.h>
 #include <errno.h>
 
-
-char* toStringByType(int type){
-    switch(type){
-        case NEW:
-            return "new";
-        case UPGRADE:
-            return "upgrade";
-        case REPAIR:
-            return "repair";
-        default:
-            return "null";
-    }
-}
 
 
 double initRandomByType(double avg, double std, double min) {
@@ -90,16 +75,12 @@ void gatherInfo(int type) {
 }
 
 
-void startTimer(key_t stopwatchKey){
+void startTimer(){
     shmid=shmget(stopwatchKey,1024,0666|IPC_CREAT);
     if(shmid!=-1){
         sw = (struct stopwatch*)shmat(shmid,NULL,0);
         swstart(sw);
 
-    }
-    int addr = shmdt(sw);
-    if(addr==-1){
-        printf("couldnt shdt\n");
     }
 }
 void initCustomers() {
@@ -113,30 +94,18 @@ void initCustomers() {
     double handleTimeArrive = 0;
     int addr;
     setArriveConsts(&avg, &std, &min);
-    handleTimeArrive = initRandomByType(avg, std, min);
     quit.msg = 2;
     key_t sorter = ftok("Sorter.c", 's');
     key_t quitKey = ftok("Sim.c", 'q');
-    key_t stopwatchKey = ftok("Sim.c",'s');
     msgid = msgget(sorter, 0666 | IPC_CREAT);
     msgquit = msgget(quitKey, 0666 | IPC_CREAT);
-    startTimer(stopwatchKey);
     while (flag) {
-
+        handleTimeArrive = initRandomByType(avg, std, min);
         generateCustomer(&type);
-        usleep(handleTimeArrive);
-        shmid=shmget(stopwatchKey,1024,0666);
-        if(shmid!=-1){
-            sw = (struct stopwatch*)shmat(shmid,NULL,0);
-        }
         gatherInfo(type);
-        addr = shmdt(sw);
-        if(addr==-1){
-            printf("couldnt shdt\n");
-        }
         msgsnd(msgid, &c, sizeof(c), 0);
         numOfCustomers++;
-
+        usleep(handleTimeArrive*10);
         if (msgrcv(msgquit, &quit, sizeof(quit), 1, IPC_NOWAIT) == -1) {
             if (errno == ENOMSG) {
                 continue;
@@ -144,18 +113,18 @@ void initCustomers() {
                 fprintf(stderr, "msgrcv failed SIM, %s\n", strerror(errno));
             }
         } else {
-            shmid = shmget(stopwatchKey,1024,0666|IPC_CREAT);
-            if(shmid!=-1){
-                sw = (struct stopwatch*)shmat(shmid,NULL,0);
-                printf("\nQuitting... %ld\n", swlap(&sw[0]));
-
-            }
+           // printf("\nQuitting... %ld\n", swlap(&sw[0]));
             c.c_data.type = QUIT;
             c.c_id = 1;
             msgsnd(msgid, &c, sizeof(c), 0);
             flag = FALSE;
         }
 
+
+    }
+    addr = shmdt(sw);
+    if(addr==-1){
+        printf("couldnt shmdt\n");
     }
     msgctl(msgquit, IPC_RMID, NULL);
 
@@ -163,71 +132,41 @@ void initCustomers() {
 }
 
 
-
-void initCustomersList() {
-    customersList = (customer *) malloc(sizeof(customer) * numOfCustomers);
-    for (int i = 0; i < numOfCustomers; i++) {
-        customersList[i].c_id = -1;
-        customersList[i].c_data.type = -1;
-        customersList[i].c_data.process_time = -1;
-        customersList[i].c_data.enter_time = -1;
-        customersList[i].c_data.start_time = -1;
-        customersList[i].c_data.exit_time = -1;
-        customersList[i].c_data.elapse_time = -1;
-
-    }
-}
-
-
-void checkQueues() {
-    key_t key;
-    key= ftok("Sim.c", 'f');
-    int msgid;
-    int tempCount = 0;
-    msgid = msgget(key, 0666 | IPC_CREAT);
-    initCustomersList();
-    customer temp;
-    for (int i = 0; i < numOfCustomers; i++) {
-        msgrcv(msgid, &temp, sizeof(temp), 0, 0);
-        if(temp.c_id!= 404 && temp.c_id!=-1){
-            customersList[tempCount]=temp;
-            tempCount++;
-        }
-        temp.c_id=-1;
-
-    }
-    numOfCustomers=tempCount;
-    msgctl(msgid, IPC_RMID, NULL);
-    for (int i = 0; i <numOfCustomers ; ++i) {
-
-        printf("%ld: %s arrived: %ld started: %ld processed: %ld exited: %ld elapse %ld\n",
-               customersList[i].c_id,
-               toStringByType(customersList[i].c_data.type),
-               customersList[i].c_data.enter_time,
-               customersList[i].c_data.start_time,
-               customersList[i].c_data.exit_time - customersList[i].c_data.start_time,
-               customersList[i].c_data.exit_time,
-               customersList[i].c_data.elapse_time
-        );
-
-    }
-    shmctl(shmid,IPC_RMID,NULL);
-
-
-}
-
 void start() {
-     if ((pid = fork()) == 0) {
+    int status;
+    stopwatchKey = ftok("Sim.c",'s');
+    startTimer();
+    if ((pid = fork()) == 0) {
         execvp(*sorterCMD,sorterCMD);
     }else if (pid > 0){
         initCustomers();
-        wait(&status);
+        if ( waitpid(pid, &status, 0) != -1 ) {
+            if ( WIFEXITED(status) ) {
+                int returned = WEXITSTATUS(status);
+                printf("Exited normally with status %d\n", returned);
+            }
+            else if ( WIFSIGNALED(status) ) {
+                int signum = WTERMSIG(status);
+                printf("Exited due to receiving signal %d\n", signum);
+            }
+            else if ( WIFSTOPPED(status) ) {
+                int signum = WSTOPSIG(status);
+                printf("Stopped due to receiving signal %d\n", signum);
+            }
+            else {
+                printf("Something strange just happened.\n");
+            }
+        }
+
+
+
+
+
+
+
 
     }
-    checkQueues();
-
-    free(customersList);
-    printf("\n\n\n\n\n\nsize all %d\n\n\n\n\n", numOfCustomers);
+    shmctl(shmid,IPC_RMID,NULL);
     printf("Ending-----\n");
 
 }

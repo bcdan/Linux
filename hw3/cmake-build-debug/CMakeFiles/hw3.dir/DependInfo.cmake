@@ -4,11 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/dan/CLionProjects/Linux/hw3/Clerk.c" "/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles/hw3.dir/Clerk.c.o"
   "/home/dan/CLionProjects/Linux/hw3/Sim.c" "/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles/hw3.dir/Sim.c.o"
-  "/home/dan/CLionProjects/Linux/hw3/Sorter.c" "/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles/hw3.dir/Sorter.c.o"
   "/home/dan/CLionProjects/Linux/hw3/random.c" "/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles/hw3.dir/random.c.o"
-  "/home/dan/CLionProjects/Linux/hw3/stop.c" "/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles/hw3.dir/stop.c.o"
   "/home/dan/CLionProjects/Linux/hw3/stopwatch.c" "/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles/hw3.dir/stopwatch.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

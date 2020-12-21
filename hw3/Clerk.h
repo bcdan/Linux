@@ -20,6 +20,7 @@ enum queueKeys {NEW=TYPE_NEW,UPGRADE=TYPE_UPGRADE,REPAIR=TYPE_REPAIR,QUIT=TYPE_Q
 
 customer c;
 
+
 double initRandomByType(double avg,double std,double min );
 void setNew(double * avg, double *std, double* min);
 void setUpgrade(double * avg, double *std, double* min);

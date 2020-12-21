@@ -76,31 +76,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/dan/CLionProjects/Linux/hw3/Clerk.c">
-			<Option target="hw3"/>
-		</Unit>
-		<Unit filename="/home/dan/CLionProjects/Linux/hw3/Clerk.h">
-			<Option target="hw3"/>
-		</Unit>
 		<Unit filename="/home/dan/CLionProjects/Linux/hw3/Sim.c">
 			<Option target="hw3"/>
 		</Unit>
 		<Unit filename="/home/dan/CLionProjects/Linux/hw3/Sim.h">
 			<Option target="hw3"/>
 		</Unit>
-		<Unit filename="/home/dan/CLionProjects/Linux/hw3/Sorter.c">
-			<Option target="hw3"/>
-		</Unit>
-		<Unit filename="/home/dan/CLionProjects/Linux/hw3/Sorter.h">
-			<Option target="hw3"/>
-		</Unit>
 		<Unit filename="/home/dan/CLionProjects/Linux/hw3/random.c">
 			<Option target="hw3"/>
 		</Unit>
 		<Unit filename="/home/dan/CLionProjects/Linux/hw3/random.h">
-			<Option target="hw3"/>
-		</Unit>
-		<Unit filename="/home/dan/CLionProjects/Linux/hw3/stop.c">
 			<Option target="hw3"/>
 		</Unit>
 		<Unit filename="/home/dan/CLionProjects/Linux/hw3/stopwatch.c">

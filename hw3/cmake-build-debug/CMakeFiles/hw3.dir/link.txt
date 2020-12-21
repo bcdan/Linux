@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/hw3.dir/Clerk.c.o CMakeFiles/hw3.dir/Sorter.c.o CMakeFiles/hw3.dir/random.c.o CMakeFiles/hw3.dir/stopwatch.c.o CMakeFiles/hw3.dir/Sim.c.o CMakeFiles/hw3.dir/stop.c.o  -o hw3 
+/usr/bin/cc -g   CMakeFiles/hw3.dir/Sim.c.o CMakeFiles/hw3.dir/stopwatch.c.o CMakeFiles/hw3.dir/random.c.o  -o hw3 

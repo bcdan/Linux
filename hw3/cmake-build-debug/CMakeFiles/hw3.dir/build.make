@@ -77,31 +77,31 @@ include CMakeFiles/hw3.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/hw3.dir/flags.make
 
-CMakeFiles/hw3.dir/Clerk.c.o: CMakeFiles/hw3.dir/flags.make
-CMakeFiles/hw3.dir/Clerk.c.o: ../Clerk.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/hw3.dir/Clerk.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hw3.dir/Clerk.c.o   -c /home/dan/CLionProjects/Linux/hw3/Clerk.c
+CMakeFiles/hw3.dir/Sim.c.o: CMakeFiles/hw3.dir/flags.make
+CMakeFiles/hw3.dir/Sim.c.o: ../Sim.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/hw3.dir/Sim.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hw3.dir/Sim.c.o   -c /home/dan/CLionProjects/Linux/hw3/Sim.c
 
-CMakeFiles/hw3.dir/Clerk.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hw3.dir/Clerk.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/dan/CLionProjects/Linux/hw3/Clerk.c > CMakeFiles/hw3.dir/Clerk.c.i
+CMakeFiles/hw3.dir/Sim.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hw3.dir/Sim.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/dan/CLionProjects/Linux/hw3/Sim.c > CMakeFiles/hw3.dir/Sim.c.i
 
-CMakeFiles/hw3.dir/Clerk.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hw3.dir/Clerk.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dan/CLionProjects/Linux/hw3/Clerk.c -o CMakeFiles/hw3.dir/Clerk.c.s
+CMakeFiles/hw3.dir/Sim.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hw3.dir/Sim.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dan/CLionProjects/Linux/hw3/Sim.c -o CMakeFiles/hw3.dir/Sim.c.s
 
-CMakeFiles/hw3.dir/Sorter.c.o: CMakeFiles/hw3.dir/flags.make
-CMakeFiles/hw3.dir/Sorter.c.o: ../Sorter.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/hw3.dir/Sorter.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hw3.dir/Sorter.c.o   -c /home/dan/CLionProjects/Linux/hw3/Sorter.c
+CMakeFiles/hw3.dir/stopwatch.c.o: CMakeFiles/hw3.dir/flags.make
+CMakeFiles/hw3.dir/stopwatch.c.o: ../stopwatch.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/hw3.dir/stopwatch.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hw3.dir/stopwatch.c.o   -c /home/dan/CLionProjects/Linux/hw3/stopwatch.c
 
-CMakeFiles/hw3.dir/Sorter.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hw3.dir/Sorter.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/dan/CLionProjects/Linux/hw3/Sorter.c > CMakeFiles/hw3.dir/Sorter.c.i
+CMakeFiles/hw3.dir/stopwatch.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hw3.dir/stopwatch.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/dan/CLionProjects/Linux/hw3/stopwatch.c > CMakeFiles/hw3.dir/stopwatch.c.i
 
-CMakeFiles/hw3.dir/Sorter.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hw3.dir/Sorter.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dan/CLionProjects/Linux/hw3/Sorter.c -o CMakeFiles/hw3.dir/Sorter.c.s
+CMakeFiles/hw3.dir/stopwatch.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hw3.dir/stopwatch.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dan/CLionProjects/Linux/hw3/stopwatch.c -o CMakeFiles/hw3.dir/stopwatch.c.s
 
 CMakeFiles/hw3.dir/random.c.o: CMakeFiles/hw3.dir/flags.make
 CMakeFiles/hw3.dir/random.c.o: ../random.c
@@ -116,66 +116,21 @@ CMakeFiles/hw3.dir/random.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hw3.dir/random.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dan/CLionProjects/Linux/hw3/random.c -o CMakeFiles/hw3.dir/random.c.s
 
-CMakeFiles/hw3.dir/stopwatch.c.o: CMakeFiles/hw3.dir/flags.make
-CMakeFiles/hw3.dir/stopwatch.c.o: ../stopwatch.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/hw3.dir/stopwatch.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hw3.dir/stopwatch.c.o   -c /home/dan/CLionProjects/Linux/hw3/stopwatch.c
-
-CMakeFiles/hw3.dir/stopwatch.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hw3.dir/stopwatch.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/dan/CLionProjects/Linux/hw3/stopwatch.c > CMakeFiles/hw3.dir/stopwatch.c.i
-
-CMakeFiles/hw3.dir/stopwatch.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hw3.dir/stopwatch.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dan/CLionProjects/Linux/hw3/stopwatch.c -o CMakeFiles/hw3.dir/stopwatch.c.s
-
-CMakeFiles/hw3.dir/Sim.c.o: CMakeFiles/hw3.dir/flags.make
-CMakeFiles/hw3.dir/Sim.c.o: ../Sim.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/hw3.dir/Sim.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hw3.dir/Sim.c.o   -c /home/dan/CLionProjects/Linux/hw3/Sim.c
-
-CMakeFiles/hw3.dir/Sim.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hw3.dir/Sim.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/dan/CLionProjects/Linux/hw3/Sim.c > CMakeFiles/hw3.dir/Sim.c.i
-
-CMakeFiles/hw3.dir/Sim.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hw3.dir/Sim.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dan/CLionProjects/Linux/hw3/Sim.c -o CMakeFiles/hw3.dir/Sim.c.s
-
-CMakeFiles/hw3.dir/stop.c.o: CMakeFiles/hw3.dir/flags.make
-CMakeFiles/hw3.dir/stop.c.o: ../stop.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/hw3.dir/stop.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hw3.dir/stop.c.o   -c /home/dan/CLionProjects/Linux/hw3/stop.c
-
-CMakeFiles/hw3.dir/stop.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hw3.dir/stop.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/dan/CLionProjects/Linux/hw3/stop.c > CMakeFiles/hw3.dir/stop.c.i
-
-CMakeFiles/hw3.dir/stop.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hw3.dir/stop.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dan/CLionProjects/Linux/hw3/stop.c -o CMakeFiles/hw3.dir/stop.c.s
-
 # Object files for target hw3
 hw3_OBJECTS = \
-"CMakeFiles/hw3.dir/Clerk.c.o" \
-"CMakeFiles/hw3.dir/Sorter.c.o" \
-"CMakeFiles/hw3.dir/random.c.o" \
-"CMakeFiles/hw3.dir/stopwatch.c.o" \
 "CMakeFiles/hw3.dir/Sim.c.o" \
-"CMakeFiles/hw3.dir/stop.c.o"
+"CMakeFiles/hw3.dir/stopwatch.c.o" \
+"CMakeFiles/hw3.dir/random.c.o"
 
 # External object files for target hw3
 hw3_EXTERNAL_OBJECTS =
 
-hw3: CMakeFiles/hw3.dir/Clerk.c.o
-hw3: CMakeFiles/hw3.dir/Sorter.c.o
-hw3: CMakeFiles/hw3.dir/random.c.o
-hw3: CMakeFiles/hw3.dir/stopwatch.c.o
 hw3: CMakeFiles/hw3.dir/Sim.c.o
-hw3: CMakeFiles/hw3.dir/stop.c.o
+hw3: CMakeFiles/hw3.dir/stopwatch.c.o
+hw3: CMakeFiles/hw3.dir/random.c.o
 hw3: CMakeFiles/hw3.dir/build.make
 hw3: CMakeFiles/hw3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable hw3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dan/CLionProjects/Linux/hw3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable hw3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hw3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

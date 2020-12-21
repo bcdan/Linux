@@ -23,16 +23,13 @@ struct qMessage {
 
 char * sorterCMD [] = {"./sorter",NULL};
 
-// init sw
-//stopwatch sw[1];
 struct stopwatch * sw;
-
-customer *customersList;
+key_t stopwatchKey;
 int numOfCustomers = 0;
-int finishTime = 0;
-int status;
 int shmid;
 pid_t pid;
+
+
 customer c;
 
 

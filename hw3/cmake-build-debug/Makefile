@@ -143,33 +143,6 @@ hw3/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/build
 .PHONY : hw3/fast
 
-Clerk.o: Clerk.c.o
-
-.PHONY : Clerk.o
-
-# target to build an object file
-Clerk.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Clerk.c.o
-.PHONY : Clerk.c.o
-
-Clerk.i: Clerk.c.i
-
-.PHONY : Clerk.i
-
-# target to preprocess a source file
-Clerk.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Clerk.c.i
-.PHONY : Clerk.c.i
-
-Clerk.s: Clerk.c.s
-
-.PHONY : Clerk.s
-
-# target to generate assembly for a file
-Clerk.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Clerk.c.s
-.PHONY : Clerk.c.s
-
 Sim.o: Sim.c.o
 
 .PHONY : Sim.o
@@ -197,33 +170,6 @@ Sim.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Sim.c.s
 .PHONY : Sim.c.s
 
-Sorter.o: Sorter.c.o
-
-.PHONY : Sorter.o
-
-# target to build an object file
-Sorter.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Sorter.c.o
-.PHONY : Sorter.c.o
-
-Sorter.i: Sorter.c.i
-
-.PHONY : Sorter.i
-
-# target to preprocess a source file
-Sorter.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Sorter.c.i
-.PHONY : Sorter.c.i
-
-Sorter.s: Sorter.c.s
-
-.PHONY : Sorter.s
-
-# target to generate assembly for a file
-Sorter.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Sorter.c.s
-.PHONY : Sorter.c.s
-
 random.o: random.c.o
 
 .PHONY : random.o
@@ -250,33 +196,6 @@ random.s: random.c.s
 random.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/random.c.s
 .PHONY : random.c.s
-
-stop.o: stop.c.o
-
-.PHONY : stop.o
-
-# target to build an object file
-stop.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/stop.c.o
-.PHONY : stop.c.o
-
-stop.i: stop.c.i
-
-.PHONY : stop.i
-
-# target to preprocess a source file
-stop.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/stop.c.i
-.PHONY : stop.c.i
-
-stop.s: stop.c.s
-
-.PHONY : stop.s
-
-# target to generate assembly for a file
-stop.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/stop.c.s
-.PHONY : stop.c.s
 
 stopwatch.o: stopwatch.c.o
 
@@ -314,21 +233,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... hw3"
-	@echo "... Clerk.o"
-	@echo "... Clerk.i"
-	@echo "... Clerk.s"
 	@echo "... Sim.o"
 	@echo "... Sim.i"
 	@echo "... Sim.s"
-	@echo "... Sorter.o"
-	@echo "... Sorter.i"
-	@echo "... Sorter.s"
 	@echo "... random.o"
 	@echo "... random.i"
 	@echo "... random.s"
-	@echo "... stop.o"
-	@echo "... stop.i"
-	@echo "... stop.s"
 	@echo "... stopwatch.o"
 	@echo "... stopwatch.i"
 	@echo "... stopwatch.s"
