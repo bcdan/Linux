@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/dan/CLionProjects/Linux/hw3_difftry/pelecom.h
+stopwatch.h
+/home/dan/CLionProjects/Linux/hw3_difftry/stopwatch.h
+
+/home/dan/CLionProjects/Linux/hw3_difftry/random.h
+math.h
+-
+
+/home/dan/CLionProjects/Linux/hw3_difftry/simulation.c
+simulation.h
+/home/dan/CLionProjects/Linux/hw3_difftry/simulation.h
+
+/home/dan/CLionProjects/Linux/hw3_difftry/simulation.h
+pelecom.h
+/home/dan/CLionProjects/Linux/hw3_difftry/pelecom.h
+string.h
+-
+sys/wait.h
+-
+random.h
+/home/dan/CLionProjects/Linux/hw3_difftry/random.h
+stdlib.h
+-
+stdio.h
+-
+sys/ipc.h
+-
+sys/msg.h
+-
+unistd.h
+-
+errno.h
+-
+
+/home/dan/CLionProjects/Linux/hw3_difftry/stopwatch.h
+sys/time.h
+-
+

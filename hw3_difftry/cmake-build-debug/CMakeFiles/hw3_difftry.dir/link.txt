@@ -1,0 +1,1 @@
+/usr/bin/cc  -lm -g   CMakeFiles/hw3_difftry.dir/stopwatch.c.o CMakeFiles/hw3_difftry.dir/simulation.c.o CMakeFiles/hw3_difftry.dir/random.c.o  -o hw3_difftry  -lm 
